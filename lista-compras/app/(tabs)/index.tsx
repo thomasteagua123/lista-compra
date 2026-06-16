@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
 import { FormularioItem } from "./componentes/FormularioItem";
 import { ListaDeCompras } from "./componentes/ListaDeCompra";
 import { useProductos } from "./componentes/hooks/useItems";
+import Titulo from "./componentes/Titulo";
+import Marco from "./componentes/Marco";
 
 export default function PantallaPrincipal() {
   const {
@@ -14,9 +15,8 @@ export default function PantallaPrincipal() {
   } = useProductos();
 
   return (
-    <View style={styles.contenedor}>
-      <Text style={styles.titulo}>🛒 Lista de Compras</Text>
-
+    <Marco>
+      <Titulo />
       <FormularioItem
         texto={texto}
         setTexto={setTexto}
@@ -28,21 +28,6 @@ export default function PantallaPrincipal() {
         alternarProducto={alternarProducto}
         eliminarProducto={eliminarProducto}
       />
-    </View>
+    </Marco>
   );
 }
-
-const styles = StyleSheet.create({
-  contenedor: {
-    flex: 1,
-    padding: 16,
-    gap: 12,
-    backgroundColor: "#fff",
-  },
-
-  titulo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginTop: 12,
-  },
-});
